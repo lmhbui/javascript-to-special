@@ -1,4 +1,8 @@
 #新增专场
+- [form表单参数](#form表单参数)
+- [验证上传图片](#验证上传图片)
+- [上传图片数据](#上传图片数据)
+- [数据提交验证](#数据提交验证)
 
 #form表单参数
 ```js
@@ -11,12 +15,19 @@ method="post"
 ```
 #验证上传图片
 ```js
-<div class="bind-fileupload fl"  bind-fileupload='{"type":"image", "maxsize" : 2000,  "width": 322, "height" : 308}'>
+<div class="bind-fileupload fl"  
+bind-fileupload='{"type":"image", "maxsize" : 2000,  "width": 322, "height" : 308}'></div>
  bind-fileupload='{"type":"image", "maxsize" : 2000,  "width": 322, "height" : 308}'
  //类型：图片，最大容量：2000，宽度：322，高度：308
 ```
 #上传图片数据
 ```js
+<input class="bind-fileupload-input" name="image_pc_small_id" 
+  data-bitmap="/img/imgsize/322_308.gif" 
+  data-img="{{$event['image_pc_small']['image_path']}}" 
+  type="hidden"  datatype="*" nullmsg="请上传图片" 
+  value="{{$event['image_pc_small']['id']}}">
+   
 //PC 专场图：（322x308）
 bind-fileupload='{"type":"image", "maxsize" : 2000,  "width": 322, "height" : 308}'
 data-bitmap="/img/imgsize/322_308.gif" //默认图片
@@ -47,22 +58,22 @@ data-bitmap="/img/imgsize/720_290.gif"
 data-img="{{$event['image_app_banner']['image_path']}}"
 value="{{$event['image_app_banner']['id']}}"
 ```
-//数据提交验证
+#数据提交验证
 ```js
-    var form = $("#form");
-    form.Validform({
-        callback: function () {
-            _post();
-            return false;
-        }
-    });
-    function _post() {
-        var pram = form.serialize();
-        $.post('/event/add', pram, function (res) {
-            if (res.errorcode === 0) {
-                window.location.href = '/event/items?event_id=' + res.event_id + '&brand_id=' + res.brand_id;
-                return false;
-            }
-        });
-    }
+  var form = $("#form");
+  form.Validform({
+      callback: function () {
+          _post();
+          return false;
+      }
+  });
+ function _post() {
+      var pram = form.serialize();
+      $.post('/event/add', pram, function (res) {
+          if (res.errorcode === 0) {
+              window.location.href = '/event/items?event_id=' + res.event_id + '&brand_id=' + res.brand_id;
+              return false;
+          }
+      });
+  }
 ```

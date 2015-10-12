@@ -1,6 +1,8 @@
 #查看专场
-- [专场数据](#专场数据)
-
+- [品牌/标题数据](#品牌/标题数据)
+- [商品图数据](#商品图数据)
+- [表格插件数据](#表格插件数据)
+- [表格插件](#表格插件)
 #品牌/标题数据
 ```js
  <input type="hidden" id="event_id" value="{{$event['id']}}">
@@ -47,7 +49,6 @@
 
 #表格插件
 ```js
-	//表格插件
 	var table = $('#datatable').dataTable({
 		url: '/event/eventitems?event_id=' + $('#event_id').val(),
 		param: {

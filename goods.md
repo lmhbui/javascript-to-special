@@ -1,6 +1,5 @@
 #商品管理
 - [tab切换](#tab切换)
-- [提交审核功能](#提交审核功能)
 - [批量操作功能](#表格-批量操作功能)
 
 #tab切换
@@ -17,7 +16,7 @@
 3.返回结果
 ```js
 {
-  event_id:147
+  event_id:99
 }
 ```
 4.示例
@@ -37,41 +36,7 @@
     }, 10);
 ```
 
-#提交审核功能
-1.请求地址
-```js
-/event/audit
-```
-2.请求参数
-```js
-{
-  event_id: eventId
-}
 
-```
-3.返回结果
-```js
-{
-  event_id: 124
-}
-```
-4.示例
-```js
-var eventId = $('#event_id').val()
-    $("#event_audit").on('click', function () {
-        $.jBox.confirm("提交审核后将不能修改添加商品了，确定要提交吗", "提示", function (v) {
-            if (v == "ok") {
-                $.post('/event/audit', {
-                    event_id: eventId
-                }, function (res) {
-                    if (res.errorcode === 0) {
-                        window.location.href = "/event";
-                    }
-                });
-            }
-        });
-    });
-```
 #表格-批量操作功能
 1.请求地址
 ```js
@@ -90,9 +55,9 @@ var eventId = $('#event_id').val()
 3.返回结果
 ```js
 {
-  event_id: 147,
-  item_id: 20000014,
-  item_status: 待审核
+event_id:99
+item_id:20000232,20000233,20000278,20000279
+item_status:1
  }
 ```
 4.示例

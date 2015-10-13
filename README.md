@@ -5,6 +5,4 @@
 
 [商品管理](goods.md)
 
-[查看专场](view.md)
-
 [商品排序](sort.md)

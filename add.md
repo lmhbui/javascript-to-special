@@ -15,8 +15,10 @@
 ```
 3.返回结果
 ```js
-event_id:150,
-&brand_id:28
+{
+  event_id:150,
+  &brand_id:28
+}
 ```
 4.示例
 ```js

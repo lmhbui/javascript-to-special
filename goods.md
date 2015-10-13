@@ -47,26 +47,25 @@
 2.请求参数
 ```js
 {
-  event_id: eventId, //id
-  item_id: ids, //商品id
-  item_status: status //审核状态
+event_id:136
+item_id:20000249
+item_status:1
 }
 ```
 3.返回结果
 ```js
 {
-event_id:99
-item_id:20000232,20000233,20000278,20000279
-item_status:1
- }
+	"errorcode": 0,
+	"message": "\u64cd\u4f5c\u6210\u529f"
+}
 ```
 4.示例
 ```js
 //批量提交数据
 $.post('/event/muloperate', {
-    event_id: eventId,
-    item_id: ids,
-    item_status: status
+    event_id: eventId,//专场id
+    item_id: ids,//商品id
+    item_status: status //审核状态
 }, function (res) {
     if (!res.error) {
         reShow(ids, status);

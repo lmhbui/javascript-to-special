@@ -43,11 +43,11 @@ setTimeout(function () {
 {
  event_id: id //商品id
  }
-``
+```
 3.返回结果
 ```js
 {
-	event_id：135
+ event_id：135
 }
 ```
 4.示例

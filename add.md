@@ -1,64 +1,24 @@
 #新增专场
-- [form表单参数](#form表单参数)
-- [验证上传图片](#验证上传图片)
-- [上传图片数据](#上传图片数据)
 - [数据提交验证](#数据提交验证)
 
-#form表单参数
-```js
-enctype='multipart/form-data',
-
-method="post"
-
-<input type="hidden" name="event_id" value="{{$event['id']}}">
-
-```
-#验证上传图片
-```js
-<div class="bind-fileupload fl"  
-bind-fileupload='{"type":"image", "maxsize" : 2000,  "width": 322, "height" : 308}'></div>
- bind-fileupload='{"type":"image", "maxsize" : 2000,  "width": 322, "height" : 308}'
- //类型：图片，最大容量：2000，宽度：322，高度：308
-```
-#上传图片数据
-```js
-<input class="bind-fileupload-input" name="image_pc_small_id" 
-  data-bitmap="/img/imgsize/322_308.gif" 
-  data-img="{{$event['image_pc_small']['image_path']}}" 
-  type="hidden"  datatype="*" nullmsg="请上传图片" 
-  value="{{$event['image_pc_small']['id']}}">
-   
-//PC 专场图：（322x308）
-bind-fileupload='{"type":"image", "maxsize" : 2000,  "width": 322, "height" : 308}'
-data-bitmap="/img/imgsize/322_308.gif" //默认图片
-data-img="{{$event['image_pc_small']['image_path']}}" //绑定上传图片路径
-value="{{$event['image_pc_small']['id']}}" 
-
-//PC Banner：（1920x250）
-bind-fileupload='{"type":"image", "maxsize" : 2000,  "width": 1920, "height" : 250}'
-data-bitmap="/img/imgsize/1920_250.gif"
-data-img="{{$event['image_pc_banner']['image_path']}}"
-value="{{$event['image_pc_banner']['id']}}"
-
-//App 专场图：（1080x462）
-bind-fileupload='{"type":"image", "maxsize" : 2000,  "width": 1080, "height" : 462}'
-data-bitmap="/img/imgsize/1080_462.gif" 
-data-img="{{$event['image_app_big']['image_path']}}"
-value="{{$event['image_app_big']['id']}}"
-
-//App 专场图：（770x540）
-bind-fileupload='{"type":"image", "maxsize" : 2000,  "width": 770, "height" : 540}'
-data-bitmap="/img/imgsize/770_540.gif" 
-data-img="{{$event['image_app_small']['image_path']}}"
-value="{{$event['image_app_small']['id']}}"
-
-//App Banner图：（720x290）
-bind-fileupload='{"type":"image", "maxsize" : 2000,  "width": 720, "height" : 290}'
-data-bitmap="/img/imgsize/720_290.gif" 
-data-img="{{$event['image_app_banner']['image_path']}}"
-value="{{$event['image_app_banner']['id']}}"
-```
 #数据提交验证
+1.地址
+```js
+/event/add
+```
+2.参数
+```js
+{
+  "method":"post",
+  "enctype":'multipart/form-data'
+}
+```
+3.返回结果
+```js
+event_id:150,
+&brand_id:28
+```
+4.示例
 ```js
   var form = $("#form");
   form.Validform({

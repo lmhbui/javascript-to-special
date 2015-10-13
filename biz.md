@@ -15,9 +15,11 @@
 }
 ```
 3.返回结果
+```js
 {
+	
 }
-
+```
 4.示例
 ```js
 setTimeout(function () {

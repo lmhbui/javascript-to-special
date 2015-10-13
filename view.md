@@ -1,7 +1,7 @@
 #查看专场
 1.请求地址
 ```js
-  /event/eventitems?event_id=' + $('#event_id').val()
+  /event/eventitems?event_id=' + $('#event_id').val()'
 ```
 2.请求参数
 ```js

@@ -6,7 +6,7 @@
 #tab切换
 1.请求地址
 ```js
-/event/statuscount
+  /event/statuscount
 ```
 2.请求参数
 ```js
@@ -89,43 +89,23 @@ var eventId = $('#event_id').val()
 ```
 3.返回结果
 ```js
+{
   event_id: 147,
   item_id: 20000014,
   item_status: 待审核
+ }
 ```
 4.示例
 ```js
-  //批量操作功能
-var eventId = $('#event_id').val(),
-   lazyFunc = _.debounce(mulPostFunc, 500, true),
-    $(".batch-setting").on('click', function () {
-        var ids = check.getSelectIds(),
-            type = $(this).data('type');
-        lazyFunc(ids, type);
-    });
-    //批量提交数据
-    function mulPostFunc(ids, status) {
-        if (ids) {
-            $.post('/event/muloperate', {
-                event_id: eventId,
-                item_id: ids,
-                item_status: status
-            }, function (res) {
-                if (!res.error) {
-                    reShow(ids, status);
-                }
-            });
-        }
+//批量提交数据
+$.post('/event/muloperate', {
+    event_id: eventId,
+    item_id: ids,
+    item_status: status
+}, function (res) {
+    if (!res.error) {
+        reShow(ids, status);
     }
-  //刷新按钮
-    function reShow(ids, status) {
-        _.each(ids.toString().split(','), function (val) {
-            $('.switch[data-id="' + val + '"]')
-                .attr('data-is_show', status)
-                .removeClass('switch-1')
-                .removeClass('switch-0')
-                .addClass('switch-' + status);
-        });
-    }
+});
 ```
 
